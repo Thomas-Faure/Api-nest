@@ -1,0 +1,8 @@
+# Node modules
+node_modules/
+# Build output
+/dist/
+# Coverage directory
+/coverage/
+# Environment files
+.env
