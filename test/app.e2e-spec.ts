@@ -22,4 +22,17 @@ describe('AppController (e2e)', () => {
       .expect(200)
       .expect('Hello World!');
   });
+
+  it('/users (POST, GET)', async () => {
+    const createRes = await request(app.getHttpServer())
+      .post('/users')
+      .send({ name: 'John' })
+      .expect(201);
+    expect(createRes.body.name).toBe('John');
+
+    const listRes = await request(app.getHttpServer())
+      .get('/users')
+      .expect(200);
+    expect(listRes.body.length).toBeGreaterThan(0);
+  });
 });
